@@ -25,6 +25,8 @@ public class P1PlayerController : MonoBehaviour
     {
         var hInput = Input.GetAxis("P1Horizontal");
         var vInput = Input.GetAxis("P1Vertical");
+
+        speed = Random.Range(3f, 10f);
  
         if(characterController.isGrounded)
         {
