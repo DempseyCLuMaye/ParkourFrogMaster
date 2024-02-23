@@ -27,10 +27,11 @@ public class JumpTrigger : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+
         if (other.CompareTag(playerTag))
         {
             // Player has jumped over the trigger area
-            // Debug.Log("Player jumped over!");
+            
 
             // Tally scores
 
@@ -60,7 +61,7 @@ public class JumpTrigger : MonoBehaviour
         FroggartScorable = false;
         scorePlayer1++;
         Debug.Log("Player 1 Score: " + scorePlayer1);
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
         FroggartScorable = true;
 
     }
@@ -70,7 +71,7 @@ public class JumpTrigger : MonoBehaviour
         FrogathyScorable = false;
         scorePlayer2++;
         Debug.Log("Player 2 Score: " + scorePlayer2);
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
         FrogathyScorable = true;
 
     }
