@@ -10,6 +10,8 @@ public class P2PlayerController : MonoBehaviour
     public float gravity = -20f;
     public float jumpSpeed = 15;
  
+    public bool CanJump = true;
+
     public bool canScoreP2 = false;
 
     CharacterController characterController;
@@ -30,13 +32,22 @@ public class P2PlayerController : MonoBehaviour
  
         if(characterController.isGrounded)
         {
+            CanJump = true;
+
             moveVelocity = transform.forward * speed * vInput;
             turnVelocity = transform.up * rotationSpeed * hInput;
             
+            
+        }
+
+        if(CanJump == true)
+        {
             if(Input.GetButtonDown("P2Jump"))
             {
+                CanJump = false;
                 canScoreP2 = true;
                 moveVelocity.y = jumpSpeed;
+            
             }
             else
             {

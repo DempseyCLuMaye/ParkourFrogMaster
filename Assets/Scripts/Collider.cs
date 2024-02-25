@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class JumpTrigger : MonoBehaviour
 {
     public string playerTag = "Player";  // Set the player tag in the Unity Editor
-    public int scorePlayer1 = 0;
-    public int scorePlayer2 = 0;
+    
 
     private bool FroggartScorable = true;
 
@@ -15,7 +15,11 @@ public class JumpTrigger : MonoBehaviour
     public GameObject Froggart;
     public GameObject Frogathy;
 
+    public int scorePlayer1 = 0;
+    public int scorePlayer2 = 0;
 
+    public  TextMeshProUGUI ScoreText;
+    public  TextMeshProUGUI WinText;
 
     void Start()
     {
@@ -23,6 +27,19 @@ public class JumpTrigger : MonoBehaviour
         Frogathy = GameObject.FindGameObjectWithTag("Frogathy");
     }
 
+    void Update()
+    {
+    
+    if (scorePlayer1 >= 5)
+        {
+            WinText.text = "Player 1 Wins!";
+        }
+        else if (scorePlayer2 >= 5)
+        {
+            WinText.text = "Player 2 Wins!";
+        }
+
+    } 
 
 
     void OnTriggerEnter(Collider other)
@@ -56,11 +73,12 @@ public class JumpTrigger : MonoBehaviour
         }
     }
 
+
     IEnumerator FroggartScore()
     {
         FroggartScorable = false;
         scorePlayer1++;
-        Debug.Log("Player 1 Score: " + scorePlayer1);
+        ScoreText.text = "Player 1: " + scorePlayer1 + "\nPlayer 2: " + scorePlayer2;
         yield return new WaitForSeconds(1);
         FroggartScorable = true;
 
@@ -70,7 +88,7 @@ public class JumpTrigger : MonoBehaviour
     {
         FrogathyScorable = false;
         scorePlayer2++;
-        Debug.Log("Player 2 Score: " + scorePlayer2);
+        ScoreText.text = "Player 1: " + scorePlayer1 + "\nPlayer 2: " + scorePlayer2;
         yield return new WaitForSeconds(1);
         FrogathyScorable = true;
 

@@ -10,6 +10,8 @@ public class P1PlayerController : MonoBehaviour
     public float gravity = -20f;
     public float jumpSpeed = 15;
 
+    public bool CanJump = true;
+
     public bool canScoreP1 = false;
  
     CharacterController characterController;
@@ -30,11 +32,19 @@ public class P1PlayerController : MonoBehaviour
  
         if(characterController.isGrounded)
         {
+            CanJump = true;
+
             moveVelocity = transform.forward * speed * vInput;
             turnVelocity = transform.up * rotationSpeed * hInput;
             
+            
+        }
+
+        if(CanJump == true)
+        {
             if(Input.GetButtonDown("P1Jump"))
             {
+                CanJump = false;
                 canScoreP1 = true;
                 moveVelocity.y = jumpSpeed;
 
