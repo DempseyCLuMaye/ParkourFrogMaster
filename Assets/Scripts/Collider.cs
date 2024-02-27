@@ -5,9 +5,6 @@ using TMPro;
 
 public class JumpTrigger : MonoBehaviour
 {
-    public string playerTag = "Player";  // Set the player tag in the Unity Editor
-    
-
     private bool FroggartScorable = true;
 
     private bool FrogathyScorable = true;
@@ -18,8 +15,9 @@ public class JumpTrigger : MonoBehaviour
     public int scorePlayer1 = 0;
     public int scorePlayer2 = 0;
 
-    public  TextMeshProUGUI ScoreText;
-    public  TextMeshProUGUI WinText;
+    public TextMeshProUGUI ScoreTextP1;
+    public TextMeshProUGUI ScoreTextP2;
+    public TextMeshProUGUI WinText;
 
     void Start()
     {
@@ -29,8 +27,8 @@ public class JumpTrigger : MonoBehaviour
 
     void Update()
     {
-    
-    if (scorePlayer1 >= 5)
+
+        if (scorePlayer1 >= 5)
         {
             WinText.text = "Player 1 Wins!";
         }
@@ -39,38 +37,33 @@ public class JumpTrigger : MonoBehaviour
             WinText.text = "Player 2 Wins!";
         }
 
-    } 
+    }
 
 
     void OnTriggerEnter(Collider other)
     {
 
-        if (other.CompareTag(playerTag))
+
+
+        if (other.gameObject.name == "Froggart" && FroggartScorable == true)
         {
-            // Player has jumped over the trigger area
-            
+            P1PlayerController playerController = other.GetComponent<P1PlayerController>();
 
-            // Tally scores
-
-            if (other.gameObject.name == "Froggart" && FroggartScorable == true)
+            if (playerController != null && playerController.CanScoreP1())
             {
-                P1PlayerController playerController = other.GetComponent<P1PlayerController>();
-
-                if (playerController != null && playerController.CanScoreP1())
-                {
-                    StartCoroutine(FroggartScore());
-                }
-            }
-            else if (other.gameObject.name == "Frogathy" && FrogathyScorable == true)
-            {
-                P2PlayerController playerController = other.GetComponent<P2PlayerController>();
-
-                if (playerController != null && playerController.CanScoreP2())
-                {
-                    StartCoroutine(FrogathyScore());
-                }
+                StartCoroutine(FroggartScore());
             }
         }
+        else if (other.gameObject.name == "Frogathy" && FrogathyScorable == true)
+        {
+            P2PlayerController playerController = other.GetComponent<P2PlayerController>();
+
+            if (playerController != null && playerController.CanScoreP2())
+            {
+                StartCoroutine(FrogathyScore());
+            }
+        }
+
     }
 
 
@@ -78,7 +71,7 @@ public class JumpTrigger : MonoBehaviour
     {
         FroggartScorable = false;
         scorePlayer1++;
-        ScoreText.text = "Player 1: " + scorePlayer1 + "\nPlayer 2: " + scorePlayer2;
+        ScoreTextP1.text = "Player 1: " + scorePlayer1;
         yield return new WaitForSeconds(1);
         FroggartScorable = true;
 
@@ -88,7 +81,7 @@ public class JumpTrigger : MonoBehaviour
     {
         FrogathyScorable = false;
         scorePlayer2++;
-        ScoreText.text = "Player 1: " + scorePlayer1 + "\nPlayer 2: " + scorePlayer2;
+        ScoreTextP2.text = "\nPlayer 2: " + scorePlayer2;
         yield return new WaitForSeconds(1);
         FrogathyScorable = true;
 
