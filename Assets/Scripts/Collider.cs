@@ -17,7 +17,6 @@ public class JumpTrigger : MonoBehaviour
 
     public TextMeshProUGUI ScoreTextP1;
     public TextMeshProUGUI ScoreTextP2;
-    public TextMeshProUGUI WinText;
 
     void Start()
     {
@@ -25,19 +24,7 @@ public class JumpTrigger : MonoBehaviour
         Frogathy = GameObject.FindGameObjectWithTag("Frogathy");
     }
 
-    void Update()
-    {
-
-        if (scorePlayer1 >= 5)
-        {
-            WinText.text = "Player 1 Wins!";
-        }
-        else if (scorePlayer2 >= 5)
-        {
-            WinText.text = "Player 2 Wins!";
-        }
-
-    }
+    
 
 
     void OnTriggerEnter(Collider other)
@@ -74,7 +61,7 @@ public class JumpTrigger : MonoBehaviour
         ScoreTextP1.text = "Player 1: " + scorePlayer1;
         yield return new WaitForSeconds(1);
         FroggartScorable = true;
-
+        Managers.Score.CheckWin(scorePlayer1, scorePlayer2);
     }
 
     IEnumerator FrogathyScore()
@@ -84,6 +71,6 @@ public class JumpTrigger : MonoBehaviour
         ScoreTextP2.text = "\nPlayer 2: " + scorePlayer2;
         yield return new WaitForSeconds(1);
         FrogathyScorable = true;
-
+        Managers.Score.CheckWin(scorePlayer1, scorePlayer2);
     }
 }
