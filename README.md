@@ -3,3 +3,6 @@ I added a chance variable by making your movement speed constantly change so if 
 
 2/25/2024
 Added the Score Counter in the Top Left and A Win Message for Whenever someone hits 5 points
+
+3/2/2024 
+Added the Managers and Made a ScoreManger Script to handle checking the scores
