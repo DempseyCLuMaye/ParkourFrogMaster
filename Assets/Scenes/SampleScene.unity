@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -389,6 +389,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 4521587141116210058, guid: 741509b67040f714ab2a4771092f9260, type: 3}
+      propertyPath: coinCount
+      value: 
+      objectReference: {fileID: 1881332245}
     - target: {fileID: 8185416620335140131, guid: 741509b67040f714ab2a4771092f9260, type: 3}
       propertyPath: m_Name
       value: Coin (1)
@@ -1744,6 +1748,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 4521587141116210058, guid: 741509b67040f714ab2a4771092f9260, type: 3}
+      propertyPath: coinCount
+      value: 
+      objectReference: {fileID: 1881332245}
     - target: {fileID: 8185416620335140131, guid: 741509b67040f714ab2a4771092f9260, type: 3}
       propertyPath: m_Name
       value: Coin (3)
@@ -1794,6 +1802,7 @@ MonoBehaviour:
   jumpSpeed: 10
   CanJump: 1
   canScoreP1: 0
+  coinCount: {fileID: 1881332245}
 --- !u!143 &1509005222
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1861,7 +1870,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c650d2be28e9bd84db61a648e909df77, type: 2}
+  - {fileID: 2100000, guid: 379a5b54fca251b4e8edb00a3c845989, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2015,7 +2024,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 379a5b54fca251b4e8edb00a3c845989, type: 2}
+  - {fileID: 2100000, guid: c650d2be28e9bd84db61a648e909df77, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2104,6 +2113,7 @@ MonoBehaviour:
   jumpSpeed: 10
   CanJump: 1
   canScoreP2: 0
+  coinCount: {fileID: 1881332245}
 --- !u!54 &1616595516
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2197,6 +2207,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 4521587141116210058, guid: 741509b67040f714ab2a4771092f9260, type: 3}
+      propertyPath: coinCount
+      value: 
+      objectReference: {fileID: 1881332245}
     - target: {fileID: 8185416620335140131, guid: 741509b67040f714ab2a4771092f9260, type: 3}
       propertyPath: m_Name
       value: Coin (2)
@@ -2269,6 +2283,51 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1881332244
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1881332246}
+  - component: {fileID: 1881332245}
+  m_Layer: 0
+  m_Name: CoinTracker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1881332245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1881332244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ad9d00c98e1f1946a8d81413cb03c74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinAmount: 0
+--- !u!4 &1881332246
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1881332244}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 229.08243, y: 318.8216, z: 256.50525}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2532,6 +2591,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 4521587141116210058, guid: 741509b67040f714ab2a4771092f9260, type: 3}
+      propertyPath: coinCount
+      value: 
+      objectReference: {fileID: 1881332245}
     - target: {fileID: 8185416620335140131, guid: 741509b67040f714ab2a4771092f9260, type: 3}
       propertyPath: m_Name
       value: Coin
@@ -2561,3 +2624,4 @@ SceneRoots:
   - {fileID: 1500030490}
   - {fileID: 178312278}
   - {fileID: 339326747}
+  - {fileID: 1881332246}

@@ -5,10 +5,21 @@ using UnityEngine;
 public class CollectibleItem : MonoBehaviour
 {
     [SerializeField] string itemName;
+
+    public CoinCount coinCount;
+
+    public bool canScore = true;
+
     void OnTriggerEnter(Collider other)
     {
 
-        Managers.Inventory.AddItem(itemName);
-        Destroy(this.gameObject);
+        if (canScore == true)
+        {
+            canScore = false;
+            Managers.Inventory.AddItem(itemName);
+            coinCount.coinAmount++;
+            Destroy(this.gameObject);
+        }
+        
     }
 }

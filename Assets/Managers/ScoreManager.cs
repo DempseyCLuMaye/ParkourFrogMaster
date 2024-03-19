@@ -22,11 +22,11 @@ public class ScoreManager : MonoBehaviour, IGameManager {
 
 	public void CheckWin(int scorePlayer1, int scorePlayer2)
 	{
-		if (scorePlayer1 >= 5)
+		if (scorePlayer1 >= 8)
 		{
 			WinText.text = "Player 1 Wins!";
 		}
-		else if (scorePlayer2 >= 5)
+		else if (scorePlayer2 >= 8)
 		{
 			WinText.text = "Player 2 Wins!";
 		}
