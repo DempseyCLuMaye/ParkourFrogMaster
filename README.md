@@ -6,3 +6,7 @@ Added the Score Counter in the Top Left and A Win Message for Whenever someone h
 
 3/2/2024 
 Added the Managers and Made a ScoreManger Script to handle checking the scores
+
+3/18/2024
+I added a speed boost that each player can use but takes the resource to be able to do so
+from the same pool of points
